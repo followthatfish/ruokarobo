@@ -15,7 +15,7 @@ The project is built on top of Robot Framework 3 and the [Browser Library](https
 * Allows you to order varying amounts of products and multiplications of recipes. If you want to make a double dose of lasagne, it's easy to automate the order part.
 
 ## What it doesn't do
-* Support choosing the desired store, yet. You'll probably do that quicker by logging in to K-ruoka.fi.
+* Support choosing the desired store, yet. You'll probably do that quicker by logging in to K-ruoka.fi and choosing the store you'd like to get your groceries from in there as your go-to store.
 * Allow you to complete the order automatically. You will need to complete the purchase, select a suitable delivery time and complete the payment by yourself.
 * Secure handling of credentials. See section "An important notice" below.
 
