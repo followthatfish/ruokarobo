@@ -38,8 +38,8 @@ If you're not okay with this, it's best not to use this project for now. While I
   * Project has been created with the [standalone release of RED](https://github.com/nokia/RED/releases/tag/0.9.5)
 
 ### Installing
-1. Clone this repository or download a release(?)
-2. Import the project to your IDE or Robot Framework environment of choice.
+1. Clone this repository or [download a release](https://github.com/followthatfish/ruokarobo/releases/)
+2. Import the project to your IDE or Robot Framework environment of choice. Make sure the IDE knows where the Browser library and the files in this project are located.
 3. Create a folder called `secrets` to the root of the project.
 4. In the `secrets` folder create a file called `credentials.resource`.
 5. Open `credentials.resource` and add these variables:
@@ -122,11 +122,8 @@ Samuli Vuorinen
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+* 1.0
+ * Initial public release
 
 ## License
 
