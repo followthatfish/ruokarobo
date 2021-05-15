@@ -49,6 +49,7 @@ ${email}    login_email
 ${pw}    password
 ```
 If you're okay with storing your K-ruoka.fi account credentials as plaintext in your file system, replace the login and password values.
+
 6. Ensure your IDE or Robot Framework environment is able to locate the credentials. Do this by opening `__init__.robot` and verifying that you don't get an error for line 8:
 `Resource    ../secrets/credentials.resource`. You can store the file elsewhere by changing the path.
 
