@@ -3,5 +3,5 @@
 *.png
 *.txt
 *.project
-secrets/credentials.resource
+secrets
 libspecs
