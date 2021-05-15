@@ -84,6 +84,7 @@ Edit the file `resource_files/preferred.products.robot` to assign your favourite
 #### Using recipes
 Recipes consist of products and their amounts. You can order the products needed for a recipe by using the `Include Recipe` keyword. 
 The keyword expects two arguments: `[name_of_recipe, multiplication]`. You can use the multiplication argument for ordering X times the amount of products in the recipe. If your recipe originally includes a product 3 times, it is then added 3*X times.
+
 `Include Recipe    Varhaiskaalisalaatti ja ryynimakkarat    1`
 
 #### Adding recipes
