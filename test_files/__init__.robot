@@ -6,6 +6,7 @@ Documentation    Creates the browser instance, goes to k-ruoka.fi and logs in.
 ...    Make sure you don't commit anything that might potentially expose them to the outside world,
 ...    or perhaps write a more secure implementation for handling the credentials.
 Resource    ../secrets/credentials.resource
+Resource    ../resource_files/preferred_products.robot
 Suite Setup    Initialize Browser And Login
 Suite Teardown    Kill Browser
 
