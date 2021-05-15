@@ -54,7 +54,7 @@ If you're okay with storing your K-ruoka.fi account credentials as plaintext in 
 `Resource    ../secrets/credentials.resource`. You can store the file elsewhere by changing the path.
 
 ### Usage
-Open `make orders.robot` to see an example order. It contains a few different ways of adding products to the cart.
+Open `test_files/make orders.robot` to see an example order. It contains a few different ways of adding products to the cart.
 * You can also use this test suite to write your own orders in.
 
 #### Adding products directly to the cart
