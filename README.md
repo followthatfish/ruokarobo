@@ -123,7 +123,7 @@ Samuli Vuorinen
 ## Version History
 
 * 1.0
- * Initial public release
+  * Initial public release
 
 ## License
 
