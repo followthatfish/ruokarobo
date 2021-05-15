@@ -61,7 +61,8 @@ To directly add a product straight into a cart in K-ruoka.fi:
 `Add Products    Järvikylä ruohosipuli ruukku Suomi 1lk`
 Or you can add several by using the optional number_of_products argument:
 `Add Products    Järvikylä ruohosipuli ruukku Suomi 1lk    4`
-If no number is provided, the product is added once.
+* If no number is provided, the product is added once.
+* The number also works for products which are sold by weight instead of number. K-ruoka.fi operates in 100g increments, so you can add 5 of such products to order 500 grams of it.
 
 #### Adding products to a local shopping list
 You can also use the shopping list feature which writes a file of the products and later requires another keyword to complete the order from the file.
