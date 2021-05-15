@@ -76,10 +76,10 @@ Add products to a shopping list like this:
 When you're done in compiling the list, make sure to include the `Order Shopping List` keyword in your test.
 
 #### Assigning products to variables
-You can reference to the products via variables
+You can reference the products via variables
 `Add Products To A Shopping List    ${sipuli}    4`
 
-Edit the file `resource_files/preferred.products.robot` to assign your favourite products to variables, which you can then reference tests and recipes. The file contains a list of products as examples, but it is probably best if you write your own, as everything may not be available at your store.
+Edit the file `resource_files/preferred.products.robot` to assign your favourite products to variables, which you can then reference in tests and recipes. The file contains a list of products as examples, but it is probably best if you replace them with your own, as everything included may not be available at your store.
 
 #### Using recipes
 Recipes consist of products and their amounts. You can order the products needed for a recipe by using the `Include Recipe` keyword. 
