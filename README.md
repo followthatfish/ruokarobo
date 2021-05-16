@@ -42,7 +42,7 @@ The project is built on top of Robot Framework 3 and the [Browser Library](https
 * Secure handling of credentials. See section "An important notice" below.
 
 ## An important notice
-Please note that in order to take full advantage of this project, **you will need to provide the project your login credentials to K-ruoka.fi.** While you can validate that the automation works by running the tests with generic login information, you will not be able to access the shopping cart created by the automation run.
+Please note that in order to take full advantage of this project, **you will need to provide your login credentials to K-ruoka.fi via a file in the file system.** While you can validate that the automation works by running the tests with generic login information, you will not be able to access the shopping cart created by the automation run.
 
 If you do provide your own login information, you are able to access the shopping cart which was created by running the test in Robot Framework. As the credentials are called via variables, their actual values are not logged in the Robot Framework report files.
 
