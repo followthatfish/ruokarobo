@@ -1,6 +1,28 @@
 # ruokarobo
 A Robot Framework project for automating your orders from Finnish online grocery store K-ruoka.fi.
 
+## Examples
+```
+Tilaa ainekset Muttisoosiin
+    Add Products To A Shopping List    ${mutti}
+    Add Products To A Shopping List    ${sipuli}
+    Add Products To A Shopping List    ${valkosipuli}
+    Add Products To A Shopping List    ${oliiviöljy}
+    Add Products To A Shopping List    Pirkka sokeri 1 kg
+    #Add Products To A Shopping List    punaviini
+    Add Products To A Shopping List    Appelsiini Bruno
+    Order Shopping List
+    Report Price
+```
+
+Or, if you already have Muttisoosi in your recipes, simply
+```
+Tilaa ainekset Muttisoosiin
+    Include Recipe    Muttisoosi    1
+    Order Shopping List
+    Report Price
+```
+
 ## Description
 Online shopping for groceries is constantly increasing. Even though the service might be very convenient, the process of ordering the things you need and want still may take a not insignificant amount of time.
 
@@ -22,7 +44,7 @@ The project is built on top of Robot Framework 3 and the [Browser Library](https
 ## An important notice
 Please note that in order to take full advantage of this project, **you will need to provide the project your login credentials to K-ruoka.fi.** While you can validate that the automation works by running the tests with generic login information, you will not be able to access the shopping cart created by the automation run.
 
-If you do provide your own login information, you are able to access the shopping cart which was created by running the test in Robot Framework.
+If you do provide your own login information, you are able to access the shopping cart which was created by running the test in Robot Framework. As the credentials are called via variables, their actual values are not logged in the Robot Framework report files.
 
 If you're not okay with this, it's best not to use this project for now. While I might implement a more secure way of storing credentials, as of now the project doesn't include one. Feel free to create a better implementation though!
 
