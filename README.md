@@ -146,8 +146,9 @@ Samuli Vuorinen
 
 ## Version History
 
-* 1.0.1
+* 1.0.2
   * Further clarification about how credentials are stored in readme
+* 1.0.1
   * Added examples to the readme
 * 1.0
   * Initial public release
