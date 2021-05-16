@@ -9,7 +9,7 @@ Tilaa ainekset Muttisoosiin
     Add Products To A Shopping List    ${valkosipuli}
     Add Products To A Shopping List    ${oliiviöljy}
     Add Products To A Shopping List    Pirkka sokeri 1 kg
-    #Add Products To A Shopping List    punaviini
+    #Add Products To A Shopping List    punaviini   (can't do that, sorry)
     Add Products To A Shopping List    Appelsiini Bruno
     Order Shopping List
     Report Price
