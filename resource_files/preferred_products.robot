@@ -29,7 +29,7 @@ ${oliiviöljy}    Borges Luomu extra-neitsytoliiviöljy 500ml
 ${paleogranola}    Paulúns Paleo granola 350g kookos, mustikka ja manteli
 ${parmesan}    Pirkka Parhaat Parmigiano Reggiano parmesan 200g
 ${pinaatti_pakaste}    Pirkka lehtipinaatti 200g pakaste
-${pirkka kermajuusto}    Pirkka kermajuusto 1 kg laktoositon
+${pirkka_kermajuusto}    Pirkka kermajuusto 1 kg laktoositon
 ${pirkka_sriracha}    Pirkka sriracha kastike 240ml
 ${ranskankerma}    Arla Lempi crème Fraîche 28% 200g laktoositon
 ${salaatti}    Järvikylän Pehtoorinsalaatti FI 1lk
