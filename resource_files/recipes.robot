@@ -7,7 +7,7 @@ Resource    preferred_products.robot
 
 Timon herkkurullat
     [Documentation]    https://www.kotikokki.net/reseptit/nayta/708077/Timon%20herkkurullat
-    Add Products To A Shopping List    ${pirkka kermajuusto}
+    Add Products To A Shopping List    ${pirkka_kermajuusto}
     Add Products To A Shopping List    ${pirkka_sriracha}
 
 Varhaiskaalisalaatti ja ryynimakkarat
