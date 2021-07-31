@@ -15,10 +15,9 @@ ${give_consent}    //div[@class='kc-buttons-container']/button/span[contains(tex
 
 *** Keywords ***
 Initialize Browser And Login
-    New Browser    chromium    headless=false    slowMo=50ms
+    New Browser    firefox    headless=false    slowMo=50ms
     New Context    viewport={'width': 1680, 'height': 1080}
     New Page    https://www.k-ruoka.fi
-    #
     Click    ${give_consent}
     Click    //span[contains(text(),'Kirjaudu')]
     Click    //span[contains(text(),'Kirjaudu sisään')]
