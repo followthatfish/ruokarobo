@@ -15,11 +15,9 @@ Add Products
     [Documentation]    Searches for the product, which is passed to the keyword as an argument. Adds desired number of product to the cart.
     Sleep    1s
     Type Text    //div[@class='product-search-input-container']//input    ${searched_product}
-    Sleep    2s
-    Click    //div[@class='search-toggle']
     Click    //div[contains(@class,'product-result-item')]//a[contains(@title,"${searched_product}")]
     Repeat Keyword    ${number_of_products}    Click    //div[@class='amount-controls active']//button[@title='Lisää']
-    Click    //div[@class='modal__close']
+    Click    //button[@class='modal__close']
 
 Add Products To A Shopping List
     [Arguments]    ${searched_product}    ${number_of_products}=1
