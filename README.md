@@ -130,6 +130,8 @@ Samuli Vuorinen
 
 * 1.2
   * Removed the previous login implementation. **Using ruokarobo no longer requires you to store your login credentials in a file. From this version on you are expected to complete the login in the browser the automation launches.** After you have done that, the automation resumes.
+* 1.1
+  * Compatibility fixes  
 * 1.0.2
   * Further clarification about how credentials are stored in readme
 * 1.0.1
