@@ -26,9 +26,9 @@ Tilaa ainekset Muttisoosiin
 ## Description
 Online shopping for groceries is constantly increasing. Even though the service might be very convenient, the process of ordering the things you need and want still may take a not insignificant amount of time.
 
-This project offers a few different ways to automate said grocery orders for customers of Finnish retail operator K-ryhmä, and specifically via their online store at K-ruoka.fi. The author of this project is not affiliated with K-ryhmä or K-ruoka.fi.
+ruokarobo offers a few different ways to automate said grocery orders for customers of Finnish retail operator K-ryhmä, and specifically via their online store at K-ruoka.fi. The author of this project is not affiliated with K-ryhmä or K-ruoka.fi.
 
-The project is built on top of Robot Framework 3 and the [Browser Library](https://robotframework-browser.org/).
+ruokarobo is built on top of Robot Framework 3 and the [Browser Library](https://robotframework-browser.org/).
 
 ## What it does
 * Provides a Robot Framework project with keywords, resources and examples for logging in to K-ruoka.fi and adding products to a shopping cart there.
@@ -37,16 +37,9 @@ The project is built on top of Robot Framework 3 and the [Browser Library](https
 * Allows you to order varying amounts of products and multiplications of recipes. If you want to make a double dose of lasagne, it's easy to automate the order part.
 
 ## What it doesn't do
-* Support choosing the desired store, yet. You'll probably do that quicker by logging in to K-ruoka.fi and choosing the store you'd like to get your groceries from in there as your go-to store.
+* Log in to K-ruoka.fi. You have to perform the login in the browser the automation starts up. After you have loggen in the automation resumes automatically.
+* Support choosing the store to order from. You'll do that quicker by logging in to K-ruoka.fi and selecting the store you'd like to get your order from. Just change the store to one you'd like to order from and leave it be. When ruokarobo logs in, it'll use the same store for ordering.
 * Allow you to complete the order automatically. You will need to complete the purchase, select a suitable delivery time and complete the payment by yourself.
-* Secure handling of credentials. See section "An important notice" below.
-
-## An important notice
-Please note that in order to take full advantage of this project, **you will need to provide your login credentials to K-ruoka.fi via a file in the file system.** While you can validate that the automation works by running the tests with generic login information, you will not be able to access the shopping cart created by the automation run.
-
-If you do provide your own login information, you are able to access the shopping cart which was created by running the test in Robot Framework. As the credentials are called via variables, their actual values are not logged in the Robot Framework report files.
-
-If you're not okay with this, it's best not to use this project for now. While I might implement a more secure way of storing credentials, as of now the project doesn't include one. Feel free to create a better implementation though!
 
 ## Getting Started
 
@@ -60,24 +53,13 @@ If you're not okay with this, it's best not to use this project for now. While I
   * Project has been created with the [standalone release of RED](https://github.com/nokia/RED/releases/tag/0.9.5)
 
 ### Installing
-1. Clone this repository or [download a release](https://github.com/followthatfish/ruokarobo/releases/)
-2. Import the project to your IDE or Robot Framework environment of choice. Make sure the IDE knows where the Browser library and the files in this project are located.
-3. Create a folder called `secrets` to the root of the project.
-4. In the `secrets` folder create a file called `credentials.resource`.
-5. Open `credentials.resource` and add these variables:
-```
-*** Variables ***
-${email}    login_email
-${pw}    password
-```
-If you're okay with storing your K-ruoka.fi account credentials as plaintext in your file system, replace the login and password values.
-
-6. Ensure your IDE or Robot Framework environment is able to locate the credentials. Do this by opening `test_files/__init__.robot` and verifying that you don't get an error for line 8:
-`Resource    ../secrets/credentials.resource`. You can store the file elsewhere by changing the path.
+1. Make sure you've installed the prerequisites.
+2. Clone this repository or [download a release](https://github.com/followthatfish/ruokarobo/releases/).
+3. Import the project to your IDE or Robot Framework environment of choice. Make sure the IDE knows where the Browser library and the files in this project are located.
 
 ### Usage
 Open `test_files/make orders.robot` to see an example order. It contains a few different ways of adding products to the cart.
-* You can also use this test suite to write your own orders in.
+* You can also use this test suite to write your own orders in. Do that by writing a new "test case" for the order.
 
 #### Adding products directly to the cart
 To directly add a product straight into a cart in K-ruoka.fi:
@@ -118,10 +100,10 @@ If you have used the shopping list, make sure to include the `Order Shopping Lis
 If you'd like Robot Framework to tell you the price of the products that were added to the cart, use the keyword `Report Price` as the last in your test.
 
 #### Performing the automation
-To perform the automation, run the test you've written in your IDE Robot Framework environment.
+To perform the automation, run the test you've written in your IDE Robot Framework environment. When the browser enters the login screen, login by desired method. When ruokarobo notices that you have logged in, it resumes the automation.
 
 ### Completing the order
-After you have let the robot do its thing and if you have provided the test valid credentials, you should have all the products you need in your K-ruoka.fi shopping cart.
+After you have let the robot do its thing you should have all the products you need in your K-ruoka.fi shopping cart.
 
 To complete the order, you then need to log in to K-ruoka.fi in your regular browser with the same credentials. When you do this, the shopping cart contains all the products the robot added there, and you're left with selecting the delivery time and providing payment details.
 
@@ -146,6 +128,8 @@ Samuli Vuorinen
 
 ## Version History
 
+* 1.2
+  * Removed the previous login implementation. **Using ruokarobo no longer requires you to store your login credentials in a file. From this version on you are expected to complete the login in the browser the automation launches.** After you have done that, the automation resumes.
 * 1.0.2
   * Further clarification about how credentials are stored in readme
 * 1.0.1
