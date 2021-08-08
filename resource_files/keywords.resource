@@ -1,8 +1,11 @@
 *** Settings ***
 Library    Browser
+Library    Collections
 Library    OperatingSystem
-Library    String
 Resource    recipes.robot
+
+*** Variables ***
+&{shopping-list}
 
 *** Keywords ***
 Initialize Shopping List File
@@ -13,7 +16,6 @@ Initialize Shopping List File
 Add Products
     [Arguments]    ${searched_product}    ${number_of_products}=1
     [Documentation]    Searches for the product, which is passed to the keyword as an argument. Adds desired number of product to the cart.
-    Sleep    1s
     Type Text    //div[@class='product-search-input-container']//input    ${searched_product}
     Click    //div[contains(@class,'product-result-item')]//a[contains(@title,"${searched_product}")]
     Repeat Keyword    ${number_of_products}    Click    //div[@class='amount-controls active']//button[@title='Lisää']
@@ -21,20 +23,37 @@ Add Products
 
 Add Products To A Shopping List
     [Arguments]    ${searched_product}    ${number_of_products}=1
-    [Documentation]    Adds the desired number of products to the shopping cart file. This can be later triggered to order the procuts by using the keyword Order Shopping List.
-    ...    A line in the file contains the product, a comma as a separator and the number of products, with the default value of one.
-    ...    Lastly, a line break is added.
-    Append To File    shopping_list.txt    ${searched_product},${number_of_products}\n
+    [Documentation]    Adds the desired number of products to the shopping list dictionary.
+    ...    The shopping list can be later processed and added to the cart in K-ruoka.fi by using the keyword Order Shopping List.
+    #Check if the product is found in the shopping list dictionary already.
+    ${is_product_in_list}    Run Keyword And Return Status    Get From Dictionary    ${shopping-list}    ${searched_product}
+    #If product is not in the shopping list, set it and its amount there. If it is, increase the amount instead.
+    Run Keyword If    ${is_product_in_list} is False    Set To Dictionary    ${shopping-list}    ${searched_product}    ${number_of_products}
+    ...    ELSE    Increase Amount Of Product    ${searched_product}    ${number_of_products}
+    Log    Shopping list contains: ${shopping-list}
+
+Increase Amount Of Product
+    [Arguments]    ${searched_product}    ${number_of_products}=1
+    [Documentation]    This keyword is called by Add Products To A Shopping List in cases where the product is already found in the shopping list.
+    #Get the amount of product from the list.
+    ${previous_amount}    Get From Dictionary    ${shopping-list}    ${searched_product}
+    #Create a new variable by adding together the old amount and the amount being added at this poinmt.
+    ${new_amount}    Evaluate    ${previous_amount}+${number_of_products}
+    #Update the shopping list by replacing the previous amount of product with the new amount.
+    Set To Dictionary    ${shopping-list}    ${searched_product}    ${new_amount}
+    Log    Increased amount of ${searched_product}.
+
+Log Shopping List Into A File
+    #${ostoslista}    Catenate    &{shopping-list}
+    ${ostoslista}    Convert To String    ${shopping-list}
+    Append To File    shopping_list.txt    ${ostoslista}    encoding=UTF-8
 
 Order Shopping List
-    [Documentation]    Adds products from the shopping cart file to the cart.
-    #Read the file contents into a variable
-    ${shopping_list_contents}=    Get File    shopping_list.txt    encoding=UTF-8
-    #Break the variable down into lines
-    @{lines}    Split To Lines    ${shopping_list_contents}
-    #Loop through the lines and trigger keyword Add Products with appropriate amounts of products
-    FOR    ${line}    IN    @{lines}
-        ${product}    Split String    ${line}    ,
+    [Documentation]    Adds products from the shopping cart dictionary to the cart.
+    Log Shopping List Into A File
+    #Loop through the shopping list and call Add Products with the products (keys) and their values to create the shopping cart in K-ruoka.fi.
+    FOR    ${product}    IN    &{shopping-list}
+        Log    ${product}
         Add Products    ${product}[0]    ${product}[1]
     END
 
