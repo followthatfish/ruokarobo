@@ -113,9 +113,7 @@ To complete the order, you then need to log in to K-ruoka.fi in your regular bro
   * As a workaround you can provide a partial name for the product. The keywords which add products to the cart do not require complete product names, but instead select the first matching search result.
 
 ### Roadmap
-The initial release of this project is functional. There are however aspects which may be improved in future releases.
-* Refactor adding products to the shopping list.
-  * The implementation is half-baked in this initial release, but the main point behind using the list is eventually to increase the number of a specific product if it already exists in the list, if something needs to order more of the same thing. Now all additions are appended to the file, which means that in this case you end up searching for the product more than once.
+Current state of ruokarobo is fully functional. There are however aspects which may be improved in future releases - see [issues](https://github.com/followthatfish/ruokarobo/issues) for more information.
 * Smarter use of Browser Library capabilities
   * The keywords contain a bunch of Sleeps, which is not ideal. Browser provides the cool `Wait For Element State` keyword, which may be utilized later to eliminate the Sleeps.
 * Refactor recipes
@@ -128,6 +126,9 @@ Samuli Vuorinen
 
 ## Version History
 
+* 1.3
+  * Made the shopping list smarter. You no longer have duplicate instances of a product in the shopping list if, say, two different recipes need to order Mutti.
+  * Performance upgrades
 * 1.2
   * Removed the previous login implementation. **Using ruokarobo no longer requires you to store your login credentials in a file. From this version on you are expected to complete the login in the browser the automation launches.** After you have done that, the automation resumes.
 * 1.1
