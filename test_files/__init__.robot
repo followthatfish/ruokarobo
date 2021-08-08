@@ -15,17 +15,14 @@ ${give_consent}    //div[@class='kc-buttons-container']/button/span[contains(tex
 
 *** Keywords ***
 Initialize Browser And Login
-    New Browser    firefox    headless=false    slowMo=50ms
+    New Browser    firefox    headless=false    slowMo=25ms
     New Context    viewport={'width': 1680, 'height': 1080}
     New Page    https://www.k-ruoka.fi
     Click    ${give_consent}
     Click    //span[contains(text(),'Kirjaudu')]
     Click    //span[contains(text(),'Kirjaudu sisään')]
-    Type Secret    //input[@id='input-email']    ${email}
-    Type Secret    //input[@id='input-password']    ${pw}
-    Sleep    1s
-    Click    //input[@id='ka-button-login']
-    Sleep    1s
+    #Waits for the user to log in before proceeding and starting to add products. Increase the timeout value below (in seconds) if logging in takes longer.
+    Wait For Elements State    //span[@id='username']    visible    timeout=30s
     Go To    https://www.k-ruoka.fi/kauppa
 
 Kill Browser
