@@ -127,8 +127,8 @@ Samuli Vuorinen
 ## Version History
 
 * 1.3
-  * Made the shopping list smarter. You no longer have duplicate instances of a product in the shopping list if, say, two different recipes need to order Mutti.
-  * Performance upgrades
+  * Made the shopping list smarter. You no longer have duplicate instances of a product in the shopping list if, say, two different recipes need to order Mutti. This is a performance upgrade.
+  * Also other performance upgrades.
 * 1.2
   * Removed the previous login implementation. **Using ruokarobo no longer requires you to store your login credentials in a file. From this version on you are expected to complete the login in the browser the automation launches.** After you have done that, the automation resumes.
 * 1.1
