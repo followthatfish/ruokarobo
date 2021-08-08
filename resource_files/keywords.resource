@@ -41,7 +41,7 @@ Increase Amount Of Product
     ${new_amount}    Evaluate    ${previous_amount}+${number_of_products}
     #Update the shopping list by replacing the previous amount of product with the new amount.
     Set To Dictionary    ${shopping-list}    ${searched_product}    ${new_amount}
-    Log    Increased amount of ${searched_product}.
+    Log    Increased amount of ${searched_product} in shopping list.
 
 Log Shopping List Into A File
     #${ostoslista}    Catenate    &{shopping-list}
