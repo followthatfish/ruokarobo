@@ -37,7 +37,7 @@ ruokarobo is built on top of Robot Framework 3 and the [Browser Library](https:/
 * Allows you to order varying amounts of products and multiplications of recipes. If you want to make a double dose of lasagne, it's easy to automate the order part.
 
 ## What it doesn't do
-* Log in to K-ruoka.fi. You have to perform the login in the browser the automation starts up. After you have loggen in the automation resumes automatically.
+* Log in to K-ruoka.fi. You have to perform the login in the browser the automation starts up. After you have logged in the automation detects that and resumes automatically.
 * Support choosing the store to order from. You'll do that quicker by logging in to K-ruoka.fi and selecting the store you'd like to get your order from. Just change the store to one you'd like to order from and leave it be. When ruokarobo logs in, it'll use the same store for ordering.
 * Allow you to complete the order automatically. You will need to complete the purchase, select a suitable delivery time and complete the payment by yourself.
 
