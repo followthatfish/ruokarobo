@@ -44,7 +44,6 @@ Increase Amount Of Product
     Log    Increased amount of ${searched_product} in shopping list.
 
 Log Shopping List Into A File
-    #${ostoslista}    Catenate    &{shopping-list}
     ${ostoslista}    Convert To String    ${shopping-list}
     Append To File    shopping_list.txt    ${ostoslista}    encoding=UTF-8
 
