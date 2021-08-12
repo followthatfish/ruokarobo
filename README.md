@@ -31,7 +31,7 @@ ruokarobo offers a few different ways to automate said grocery orders for custom
 ruokarobo is built on top of Robot Framework 3 and the [Browser Library](https://robotframework-browser.org/).
 
 ## What it does
-* Provides a Robot Framework project with keywords, resources and examples for logging in to K-ruoka.fi and adding products to a shopping cart there.
+* Provides a Robot Framework project with keywords, resources and examples for automatically composing a shopping cart at K-ruoka.fi.
 * Allows you to keep a list of your preferred products as variables and use said variables to order the products you like to use.
 * Allows you to define your recipes, which consist of products. These can later be ordered with a single keyword.
 * Allows you to order varying amounts of products and multiplications of recipes. If you want to make a double dose of lasagne, it's easy to automate the order part.
@@ -70,8 +70,7 @@ Or you can add several by using the optional number_of_products argument:
 * The number also works for products which are sold by weight instead of number. K-ruoka.fi operates in 100g increments, so you can add 5 of such products to order 500 grams of it.
 
 #### Adding products to a local shopping list
-You can also use the shopping list feature which writes a file of the products and later requires another keyword to complete the order from the file.
-* The implementation is half-baked in this initial release, but the main point behind using the list is eventually to increase the number of a specific product if it already exists in the list, if something needs to order more of the same thing. Now all additions are appended to the file, which means that in this case you end up searching for the product more than once.
+You can also use the shopping list feature which keeps a structured list of the products and later requires another keyword to complete the order from it. 
 
 Add products to a shopping list like this:
 `Add Products To A Shopping List    Järvikylä ruohosipuli ruukku Suomi 1lk`
